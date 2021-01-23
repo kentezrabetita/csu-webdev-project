@@ -13,6 +13,8 @@ $(document).ready(function(){
                 success : function(data){
                     Note.get(user);
                     $("#addNoteModal").modal("hide");
+                    $("#note-name").val("");
+                    $("#note-description").val("");
                 }
             })
         },
@@ -32,7 +34,7 @@ $(document).ready(function(){
                                     +"<div class=\"card-body clearfix\">"
                                         +"<p class=\"card-text\">"+ value.description +"\<p>"
                                         +"<button class=\"pull-right btn btn-primary m-1\"><i class=\"fa fa-edit\"></i></button>"
-                                        +"<button class=\"pull-right btn btn-primary m-1\"><i class=\"fa fa-trash\"></i></button>"
+                                        +"<button data-note_id=\""+value.id+"\"class=\"pull-right btn btn-primary m-1 delete_note\"><i class=\"fa fa-trash\"></i></button>"
                                     +"</div>"
                                 +"</div>"
                             +"</li>"
@@ -40,6 +42,18 @@ $(document).ready(function(){
                     });
                 }
             })
+        },
+        delete: function(note_id){
+            if(confirm("Are you sure? This action cannot be undone.")){
+                $.ajax({
+                    type: "POST",
+                    data: { id: note_id, action: 'delete_note'},
+                    url: 'php/note.php',
+                    success: function(data){
+                        Note.get(user);
+                    }
+                })
+            }
         }
     };
 
@@ -50,5 +64,9 @@ $(document).ready(function(){
             $("#note-name").val(),
             $("#note-description").val()
         );
+    });
+
+    $(".notes_list").on('click', '.delete_note', function(e){
+        Note.delete(this.dataset.note_id);
     });
 });

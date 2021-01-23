@@ -32,5 +32,20 @@
             throw $err;
         }
     }
+    else if($_POST["action"]=="delete_note"){
+        $note_id = intval($_POST['id']);
+
+        try {
+            $pdo->beginTransaction();
+            $prepared_statement = $pdo->prepare("DELETE FROM notes where id=?");
+            $prepared_statement->execute(array($note_id));
+            $pdo->commit();
+
+            echo "Success!";
+
+        } catch(Exception $e) {
+            echo "error!";
+        }
+    }
 
 ?>

@@ -32,6 +32,7 @@
         </div>
         <div class="notes">
             <ul class="notes_list">
+            
             </ul>
         </div>
     </div>
