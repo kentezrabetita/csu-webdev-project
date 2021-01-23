@@ -30,7 +30,7 @@ $(document).ready(function(){
                         $(".notes_list").append(
                             "<li class=\"note\">"
                                 +"<div class=\"card\">"
-                                    +"<div class=\"card-header\">"+ value.name +"\</div>"
+                                    +"<div class=\"card-header font-weight-bold text-white text-uppercase bg-primary\">"+ value.name +"\</div>"
                                     +"<div class=\"card-body clearfix\">"
                                         +"<p class=\"card-text\">"+ value.description +"\</p>"
                                         +"<button data-note_id=\""+value.id+"\"class=\"pull-right btn btn-primary m-1 edit_note\"><i class=\"fa fa-edit\"></i></button>"
