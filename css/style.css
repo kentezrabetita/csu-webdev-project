@@ -1,0 +1,16 @@
+.heading {
+    text-align: center;
+    margin-top: 5rem;
+}
+
+li {
+    list-style: none;
+}
+
+.notes_list {
+    padding: 2%;
+}
+
+.note {
+    margin: 1%;
+}
