@@ -7,7 +7,7 @@ $(document).ready(function(){
                 description: description
             };
             $.ajax({
-                url: "php/note.php",
+                url: "note.php",
                 type: "POST",
                 data: { data: new_note, action: "add_note"},
                 success : function(data){
@@ -20,7 +20,7 @@ $(document).ready(function(){
         },
         get: function(user_id){
             $.ajax({
-                url: "php/note.php",
+                url: "note.php",
                 type: "POST",
                 data: { user_id: user_id, action: "get_notes"},
                 success : function(data){
@@ -48,7 +48,7 @@ $(document).ready(function(){
                 $.ajax({
                     type: "POST",
                     data: { id: note_id, action: 'delete_note'},
-                    url: 'php/note.php',
+                    url: 'note.php',
                     success: function(data){
                         Note.get(user);
                     }
@@ -70,7 +70,7 @@ $(document).ready(function(){
                 $.ajax({
                     type: "POST",
                     data: { data: edited_note, action: 'edit_note'},
-                    url: 'php/note.php',
+                    url: 'note.php',
                     success: function(data){
                         Note.get(user);
                         $("#editNoteModal").modal("hide");
