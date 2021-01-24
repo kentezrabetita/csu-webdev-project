@@ -1,14 +1,13 @@
 <?php
 
-	$dsn = "mysql:host=localhost;dbname=notes_db";
-	$user = "root";
-	$password = "";
+    $dsn = "mysql:host=localhost;dbname=notes_db";
+    $user = "root";
+    $password = "";
 
-	$pdo = new PDO($dsn, $user, $password);
+    $pdo =  new PDO($dsn, $user, $password);
 
-	if(!$pdo){
-		echo "Database Connection Failed!";
-		exit();
-	}
-
+    if(!$pdo){
+        echo "Failed to connect to our mysql database";
+        exit();
+    }
 ?>

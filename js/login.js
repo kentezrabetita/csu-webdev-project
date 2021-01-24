@@ -1,21 +1,26 @@
 $(document).ready(function(){
-    var User = {
-        userLogin: function(uname, pwd){
-            var u_user = {
-                uname,
-                pwd
-            };
-            $.ajax({
-                type: "POST",
-                url: "php/user.php",
-                data: { data: u_user, action: "log_user"},
-                success: function(data){
-                    alert(data);
-                }
-            })
+
+  var user = {
+    login: function(username, password){
+      var current_user = {
+        username,
+        password
+      };
+      $.ajax({
+        type: "POST",
+        data: { data: current_user, action: 'login_user'}, // login_user function in auth.php
+        url: "auth.php",
+        success: function(data){
+          location.href = "../index.php";
         }
-    };
-    $("#login").click(function(){
-        User.userLogin($("#username").val(),$("#password").val(),);
-    });
+      })
+    }
+  };
+
+  $('#login').click(function() {
+    user.login($('#username').val(),$('#password').val());
+    $('#username').val(""); 
+    $('#password').val("");
+  });
+
 });
