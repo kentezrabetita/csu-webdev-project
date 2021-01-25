@@ -3,7 +3,6 @@
   session_start();
 
   if(!isset($_SESSION['authenticated'])){
-    //User not logged in. Redirect them back to the login.php page.
     header('location: php/login.php');
     exit;
   }
