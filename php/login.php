@@ -3,7 +3,6 @@
   session_start();
 
   if(isset($_SESSION['authenticated'])){
-    //User not logged in. Redirect them back to the login.php page.
     header('location: ../index.php');
 	}
 
@@ -34,6 +33,7 @@
 					<div class="card-header bg-primary text-white text-center">
 						<h2 class="mt-2">NOTES APP</h2>
 					</div>
+					<!-- FORM -->
 					<div class="card-body">
 						<div class="form-group">
 							<label for="">Username</label>
@@ -44,6 +44,12 @@
 							<input class="form-control" type="password" name="password" id="password">
 						</div>
 						<input class="btn btn-primary w-100" type="submit" value="SIGN IN" name="login" id="login">
+						<?php
+							if(isset($_SESSION["error"])){
+									$error = $_SESSION["error"];
+									echo "<button class=\"btn btn-danger mt-2 text-align-center w-100\">$error</button>";
+							}
+            ?>  
 					</div>
 					<div class="card-footer text-center">
 						<small><a href="register.php">Create an account here!</a></small>

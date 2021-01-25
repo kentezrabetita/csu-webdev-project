@@ -1,4 +1,5 @@
 <?php
+  session_start();
 
   include 'dbconnect.php';
 
@@ -13,7 +14,8 @@
 
     if($user === false){
       if($_POST['password'] != $_POST['r_password']){
-        echo "Password did not match.";
+        $_SESSION["error"] = "Password did not match.";
+        header('location: register.php');
         exit();
       }
       else {
@@ -31,13 +33,14 @@
         $res = $statement->execute();
 
         if($res) {
-          echo "User Registered.";
+          $_SESSION["message"] = "Account Created!";
+          header('location: register.php');
         }
       }
     }
     else {
-      echo "Username is taken.";
-      exit();
+      $_SESSION["error"] = "username is taken!";
+      header('location: register.php');
     }
   }
 

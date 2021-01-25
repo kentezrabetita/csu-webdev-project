@@ -1,7 +1,12 @@
+<?php
+	session_start();
+?>
+
+
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Register</title>
+		<title>Register Page</title>
 
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 
@@ -12,7 +17,7 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 		
-		<script type="text/javascript" src="../js/app.js"></script>
+	<script type="text/javascript" src="../js/app.js"></script>
 	</head>
 
 	<body class="register_class" style="background-color: #e0e0d1;">
@@ -43,6 +48,16 @@
 							</div>
 							<input class="btn btn-primary w-100" type="submit" value="CREATE ACCOUNT" name="register">
 						</form>
+						<?php
+								if(isset($_SESSION["error"])){
+									$error = $_SESSION["error"];
+									echo "<button class=\"btn btn-danger mt-2 text-align-center w-100\">$error</button>";
+								}
+								else if(isset($_SESSION["message"])){
+									$message = $_SESSION["message"];
+									echo "<button class=\"btn btn-success mt-2 text-align-center w-100\">$message</button>";
+								}
+            	?>
 					</div>
 					<div class="card-footer text-center">
 						<small>&copy; Betita Bernasol Cagampang</small>
@@ -52,3 +67,7 @@
 		</div>
 	</body>
 </html>
+
+<?php
+	session_unset();
+?>

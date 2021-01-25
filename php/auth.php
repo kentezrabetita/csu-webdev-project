@@ -14,7 +14,8 @@
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
     if($user === false){
-      echo 'username not found!';
+      echo '<label>username not found!</label>';
+      $_SESSION["error"] = "username not found!";
       exit();
     }
     else {
@@ -25,11 +26,12 @@
         $_SESSION['authenticated'] = TRUE;
         $_SESSION['username'] = $_POST['data']['username'];
         $_SESSION['id'] = $user['id'];
+        header ('Location: ../index.php');
         echo "Success!";
       }
       else {
-        echo "password did not match!";
-        exit();
+        echo "<label>password did not match!</label>";
+        $_SESSION["error"] = "password did not match!";
       }
     }
   }
