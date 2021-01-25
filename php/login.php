@@ -37,11 +37,11 @@
 					<div class="card-body">
 						<div class="form-group">
 							<label for="">Username</label>
-							<input class="form-control" type="text" name="username" id="username">
+							<input class="form-control" type="text" name="username" id="username" required>
 						</div>
 						<div class="form-group">
 							<label for="">Password</label>
-							<input class="form-control" type="password" name="password" id="password">
+							<input class="form-control" type="password" name="password" id="password" required>
 						</div>
 						<input class="btn btn-primary w-100" type="submit" value="SIGN IN" name="login" id="login">
 						<?php
