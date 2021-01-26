@@ -9,7 +9,7 @@
         $user_id = $_POST["data"]["id"];
         $name = $_POST["data"]["name"];
         $description = $_POST["data"]["description"];
-        ///pdo
+
         $pdo->beginTransaction();
         $prepared_statement = $pdo->prepare("INSERT INTO notes(name, description, user_id, status, created_at) VALUES(?,?,?,?,?)");
         $prepared_statement->execute(array($name, $description, $user_id, 1, date("Y-m-d h:i:sa")));

@@ -20,7 +20,7 @@
 	<script type="text/javascript" src="../js/app.js"></script>
 	</head>
 
-	<body class="register_class" style="background-color: #e0e0d1;">
+	<body style="background-color: #e0e0d1;">
 
 		<div class="container vh-100">
 			<div class="row justify-content-center h-100">
